@@ -1,65 +1,50 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Image from "next/image";
+import { useWindupString } from "windups";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import "animate.css";
+import { useEffect } from "react";
 
 export default function Home() {
+  const [text] = useWindupString("QUẢN LÝ MUA BÁN SỐ ĐA NỀN TẢNG", {
+    pace: (char) => 75,
+  });
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+    <div className="flex flex-col justify-between min-h-screen">
+      {/* Brand */}
+      <div className="container mx-auto py-36">
+        <div className="flex justify-between h-full pt-20">
+          <div className="px-10 flex-grow">
+            <div className="w-2/3 mx-auto shadow-xl animate__animated animate__slideInLeft">
+              <img src="/assets/images/dashboard.png" />
+            </div>
+          </div>
+          <div className="pt-5">
+            <div className="w-56 rounded p-5 ring-8 ring-blue-100 mb-5 animate__animated animate__fadeIn">
+              <h1 className="text-3xl text-gray-800 font-black leading-normal text-center">
+                {text}
+              </h1>
+            </div>
+          </div>
         </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+      </div>
+      {/* End Brand */}
+      <div className="flex h-20 border overflow-visible items-center justify-center sticky top-0 shadow">
+        <div className="h-28 border flex flex-col justify-center bg-white shadow">
+          <Image
+            className="animate__animated animate__fadeInUp"
+            src="/assets/images/gozo-logo.png"
+            width={200}
+            height={75}
+          />
+        </div>
+      </div>
+      <div className="mt-10 h-screen"></div>
     </div>
-  )
+  );
 }
