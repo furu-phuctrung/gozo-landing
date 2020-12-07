@@ -19,7 +19,7 @@ export default function Home() {
       {/* Navbar */}
       <HomeNavbar />
       {/* End Navbar */}
-      <div className="mt-20">
+      <div className="mt-32">
         {/* Home Topics */}
         <HomeTopicList />
         {/* End Home Topics */}
