@@ -2,7 +2,7 @@ import _ from "lodash";
 
 export default function HomeTopicList() {
   return (
-    <div className="container mx-auto grid grid-cols-2 gap-x-0 gap-y-28">
+    <div className="container mx-auto grid grid-cols-2 gap-x-0 gap-y-32">
       {_.range(6).map((i) => (
         <div key={i} className="flex justify-center">
           <div className="flex flex-col" data-aos="fade-up">
