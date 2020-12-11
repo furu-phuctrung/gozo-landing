@@ -4,7 +4,7 @@ export default function HomeTopicList() {
   return (
     <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-32">
       {_.range(6).map((i) => (
-        <div key={i} className="p-5 flex flex-col shadow" data-aos="zoom-in">
+        <div key={i} className="p-5 flex flex-col shadow bg-white rounded" data-aos="zoom-in">
           <h2 className="text-xl mb-2 text-center font-bold">
             Quản lý cửa hàng
           </h2>
